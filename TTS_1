@@ -1,0 +1,39 @@
+from gtts import gTTS
+from translate import Translator
+from time import sleep
+import os
+
+text = "Welcome to Bit Chord Kiosk"
+
+# Initialize gTTS
+tts_intro = gTTS(text)
+
+# Save the audio file
+tts_intro.save("output.mp3")
+
+# Play the audio file (requires a media player)
+os.system("start output.mp3")
+sleep(5)
+os.system("close output.mp3")'''
+text = "Please place your Aadhar card below the scanner."
+
+# Initialize gTTS
+tts_English = gTTS(text)
+
+# Save the audio file
+tts_English.save("output1.mp3")
+
+# Play the audio file (requires a media player)
+os.system("start output1.mp3")
+sleep(5)
+os.system("close output1.mp3")
+
+translator=Translator(from_lang = "en",to_lang="ml-IN")
+translation=translator.translate("Please place your Aadhar card below the scanner.")
+print(translation)
+tts_Malayalam=gTTS(translation)
+
+tts_Malayalam.save("AadharScan_Malayalam.mp3")
+os.system("start AadharScan_Malayalam.mp3")
+sleep(5)
+os.system("close AadharScan_Malayalam.mp3")
